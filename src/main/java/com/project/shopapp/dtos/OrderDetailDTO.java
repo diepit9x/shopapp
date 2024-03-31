@@ -22,15 +22,15 @@ public class OrderDetailDTO {
     private Long productId;
 
     @Min(value = 0, message = "Price must be >= 0")
-    private Long price;
+    private Double price;
 
-    @JsonProperty("number_of_product")
+    @JsonProperty("number_of_products")
     @Min(value = 1, message = "Number of product must be > 0")
-    private int numberOfProduct;
+    private int numberOfProducts;
 
     @JsonProperty("total_money")
     @Min(value = 0, message = "Total money must be >= 0")
-    private Long totalMoney;
+    private Double totalMoney;
 
     private String color;
 

@@ -28,11 +28,11 @@ public class OrderDetail {
     @JoinColumn(nullable = false)
     private Double price;
 
-    @Column(name = "number_of_product", nullable = false)
-    private int numberOfProduct;
+    @Column(name = "number_of_products", nullable = false)
+    private int numberOfProducts;
 
-    @Column(name = "total_price")
-    private Double totalPrice;
+    @Column(name = "total_money")
+    private Double totalMoney;
 
     private String color;
 

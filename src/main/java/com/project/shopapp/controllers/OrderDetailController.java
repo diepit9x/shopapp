@@ -1,7 +1,11 @@
 package com.project.shopapp.controllers;
 
 import com.project.shopapp.dtos.OrderDetailDTO;
+import com.project.shopapp.models.OrderDetail;
+import com.project.shopapp.responses.OrderDetailResponse;
+import com.project.shopapp.services.OrderDetailService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -10,11 +14,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("${api.prefix}/order_details")
 public class OrderDetailController {
+    private final OrderDetailService orderDetailService;
     @PostMapping("")
     public ResponseEntity<?> createOrderDetail(
-            @Valid @RequestBody OrderDetailDTO newOrderDetailDTO,
+            @Valid @RequestBody OrderDetailDTO orderDetailDTO,
             BindingResult result
     ) {
         try {
@@ -23,7 +29,8 @@ public class OrderDetailController {
                         .map(FieldError::getDefaultMessage).toList();
                 return ResponseEntity.badRequest().body(errorMessage);
             }
-            return ResponseEntity.ok("Create order detail successfully");
+            OrderDetail newOrderDetail = orderDetailService.createOrderDetail(orderDetailDTO);
+            return ResponseEntity.ok(OrderDetailResponse.formOrderDetail(newOrderDetail));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -33,14 +40,22 @@ public class OrderDetailController {
     public ResponseEntity<?> getOrderDetail(
         @Valid @PathVariable("id") Long id
     ) {
-        return ResponseEntity.ok("GET order detail's id = "+ id);
+        try {
+            OrderDetail orderDetail = orderDetailService.getOrderDetail(id);
+            return ResponseEntity.ok(OrderDetailResponse.formOrderDetail(orderDetail));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/order/{orderId}")
     public ResponseEntity<?> getOrderDetails(
             @Valid @PathVariable("orderId") Long orderId
     ) {
-        return ResponseEntity.ok("getOderDetails with orderId="+orderId);
+        List<OrderDetail> orderDetails = orderDetailService.findByOrderId(orderId);
+        List<OrderDetailResponse> orderDetailResponses = orderDetails.stream()
+                .map(OrderDetailResponse::formOrderDetail).toList();
+        return ResponseEntity.ok(orderDetailResponses);
     }
 
     @PutMapping("/{id}")
