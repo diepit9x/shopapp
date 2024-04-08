@@ -1,5 +1,6 @@
 package com.project.shopapp.services;
 
+import com.project.shopapp.components.JwtTokenUtil;
 import com.project.shopapp.dtos.UserDTO;
 import com.project.shopapp.exceptions.DataNotFoundException;
 import com.project.shopapp.models.Role;
@@ -8,7 +9,10 @@ import com.project.shopapp.repositories.RoleRepository;
 import com.project.shopapp.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +20,8 @@ public class UserService implements IUserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtTokenUtil jwtTokenUtil;
 
 
     @Override
@@ -39,13 +45,20 @@ public class UserService implements IUserService {
         newUser.setRole(role);
         if (userDTO.getFacebookAccountId() == 0 && userDTO.getGoogleAccountId() == 0) {
             String password = userDTO.getPassword();
-            //String encodedPassword = passwordEncoder.encode(password);
+            String encodedPassword = passwordEncoder.encode(password);
+            newUser.setPassword(encodedPassword);
         }
         return userRepository.save(newUser);
     }
 
     @Override
-    public String login(String phoneNumber, String password) {
-        return null;
+    public String login(String phoneNumber, String password) throws Exception {
+        Optional<User> optionalUser = userRepository.findByPhoneNumber(phoneNumber);
+        if (optionalUser.isEmpty()) {
+            throw new DataNotFoundException("Invalid phonenumber or password");
+            
+        }
+        User existingUser = optionalUser.get();
+        return jwtTokenUtil.generateToken(existingUser);
     }
 }

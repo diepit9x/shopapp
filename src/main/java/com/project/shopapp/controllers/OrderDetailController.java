@@ -61,15 +61,27 @@ public class OrderDetailController {
     @PutMapping("/{id}")
     public ResponseEntity<?> updateOrderDetail(
             @Valid @PathVariable("id") Long id,
-            @RequestBody OrderDetailDTO newOrderDetailDTO
+            @Valid @RequestBody OrderDetailDTO orderDetailDTO,
+            BindingResult result
     ) {
-        return ResponseEntity.ok("UpdateOrderDetail with id="+id);
+        try {
+            if (result.hasErrors()) {
+                List<String> errorMessage = result.getFieldErrors().stream()
+                        .map(FieldError::getDefaultMessage).toList();
+                return ResponseEntity.badRequest().body(errorMessage);
+            }
+            OrderDetail orderDetail = orderDetailService.updateOrderDetail(id, orderDetailDTO);
+            return ResponseEntity.ok(OrderDetailResponse.formOrderDetail(orderDetail));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrderDetail(
             @Valid @PathVariable("id") Long id
     ) {
+        orderDetailService.deleteOrderDetail(id);
         return ResponseEntity.noContent().build();
     }
 }

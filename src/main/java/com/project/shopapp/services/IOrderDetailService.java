@@ -9,7 +9,7 @@ import java.util.List;
 public interface IOrderDetailService {
     OrderDetail createOrderDetail(OrderDetailDTO orderDetailDTO) throws Exception;
     OrderDetail getOrderDetail(Long id) throws Exception;
-    OrderDetail updateOrderDetail(Long id, OrderDetailDTO newOrderDetailData);
+    OrderDetail updateOrderDetail(Long id, OrderDetailDTO newOrderDetailData) throws Exception;
     void deleteOrderDetail(Long id);
     List<OrderDetail> findByOrderId(Long orderId);
 }

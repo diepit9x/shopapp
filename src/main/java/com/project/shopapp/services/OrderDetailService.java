@@ -8,7 +8,6 @@ import com.project.shopapp.models.Product;
 import com.project.shopapp.repositories.OrderDetailRepository;
 import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.ProductRepository;
-import com.project.shopapp.responses.OrderDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -46,8 +45,21 @@ public class OrderDetailService implements IOrderDetailService{
     }
 
     @Override
-    public OrderDetail updateOrderDetail(Long id, OrderDetailDTO newOrderDetailData) {
-        return null;
+    public OrderDetail updateOrderDetail(Long id, OrderDetailDTO orderDetailDTO) throws Exception {
+        OrderDetail existingOrderDetail = orderDetailRepository.findById(id)
+                .orElseThrow(() -> new DataNotFoundException("Cannot find OrderDetail with id: " + id));
+        Order existingOrder = orderRepository.findById(orderDetailDTO.getOrderId())
+                .orElseThrow(() -> new DataNotFoundException("Cannot find order with id: "+orderDetailDTO.getOrderId()));
+        Product existingProduct = productRepository.findById(orderDetailDTO.getProductId())
+                .orElseThrow(() -> new DataNotFoundException("Cannot find product with id: "+orderDetailDTO.getProductId()));
+        //update
+        existingOrderDetail.setPrice(orderDetailDTO.getPrice());
+        existingOrderDetail.setNumberOfProducts(orderDetailDTO.getNumberOfProducts());
+        existingOrderDetail.setTotalMoney(orderDetailDTO.getTotalMoney());
+        existingOrderDetail.setColor(orderDetailDTO.getColor());
+        existingOrderDetail.setOrder(existingOrder);
+        existingOrderDetail.setProduct(existingProduct);
+        return orderDetailRepository.save(existingOrderDetail);
     }
 
     @Override
