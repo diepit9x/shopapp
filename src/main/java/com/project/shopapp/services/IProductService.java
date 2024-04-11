@@ -13,7 +13,7 @@ public interface IProductService {
     public Product createProduct(ProductDTO productDTO) throws DataNotFoundException;
     Product getProductById(long id) throws Exception;
     Page<ProductResponse> getAllProducts(PageRequest pageRequest);
-    Product updateProduct(long id, ProductDTO productDTO) throws Exception;
+    Product updateProduct(Long id, ProductDTO productDTO) throws Exception;
     void deleteProduct(long id);
     boolean existByName(String name);
     ProductImage createproductImage(Long productId, ProductImageDTO productImageDTO) throws Exception;

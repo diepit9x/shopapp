@@ -50,7 +50,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product updateProduct(long id, ProductDTO productDTO) throws Exception {
+    public Product updateProduct(Long id, ProductDTO productDTO) throws Exception {
         Product existingProduct = getProductById(id);
         if (existingProduct != null) {
             Category exstingCategory = categoryRepository.findById(productDTO.getCategoryId())

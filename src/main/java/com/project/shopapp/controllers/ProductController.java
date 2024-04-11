@@ -1,6 +1,7 @@
 package com.project.shopapp.controllers;
 
 import com.github.javafaker.Faker;
+import com.project.shopapp.dtos.OrderDetailDTO;
 import com.project.shopapp.dtos.ProductDTO;
 
 import java.nio.file.Files;
@@ -183,4 +184,25 @@ public class ProductController {
         }
         return ResponseEntity.ok("Fake products successfully");
     }
+
+    @PutMapping("/{productId}")
+    public ResponseEntity<?> updateProduct(
+            @Valid @PathVariable("productId") Long id,
+            @Valid @RequestBody ProductDTO productDTO,
+            BindingResult result
+    ) {
+        try {
+            if (result.hasErrors()) {
+                List<String> errorMessage =  result.getFieldErrors().stream()
+                        .map(FieldError::getDefaultMessage)
+                        .toList();
+                return ResponseEntity.badRequest().body(errorMessage);
+            }
+            Product updatedProduct = productService.updateProduct(id, productDTO);
+            return ResponseEntity.ok(updatedProduct);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
