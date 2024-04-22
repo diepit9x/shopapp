@@ -43,7 +43,7 @@ public class OrderDTO {
     private String shippingMethod;
 
     @JsonProperty("shipping_address")
-    private String shippingAdress;
+    private String shippingAddress;
 
     @JsonProperty("shipping_date")
     private LocalDate shippingDate;

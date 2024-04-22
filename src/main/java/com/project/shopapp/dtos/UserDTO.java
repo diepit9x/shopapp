@@ -3,6 +3,7 @@ package com.project.shopapp.dtos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class UserDTO {
     private String fullName;
 
     @JsonProperty("phone_number")
-    @NotBlank(message = "Phone number is required")
+    @Size(min = 6, max = 10, message = "Phone number must be between 6 and 10 characters")
     private String phoneNumber;
 
     private String address;

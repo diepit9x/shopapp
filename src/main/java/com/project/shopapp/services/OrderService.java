@@ -20,7 +20,7 @@ import java.util.List;
 public class OrderService implements IOrderService {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
+    //private final ModelMapper modelMapper;
 
     @Override
     public Order createOrder(OrderDTO orderDTO) throws Exception {
@@ -28,20 +28,36 @@ public class OrderService implements IOrderService {
                 .orElseThrow(() -> new DataNotFoundException("Cannot find user with id = "+orderDTO.getUserId()));
         //Convert orderDTO to Order.
         //use mapper lib
-        modelMapper.typeMap(OrderDTO.class, Order.class)
-                .addMappings(mapper -> mapper.skip(Order::setId));
-        Order order = new Order();
-        modelMapper.map(orderDTO, order);
-        order.setUser(user);
-        order.setOrderDate(new Date());
-        order.setStatus(OrderStatus.PENDING);
+//        modelMapper.typeMap(OrderDTO.class, Order.class)
+//                .addMappings(mapper -> mapper.skip(Order::setId));
+        Order order = Order.builder()
+                .user(user)
+                .fullName(orderDTO.getFullName())
+                .email(orderDTO.getEmail())
+                .phoneNumber(orderDTO.getPhoneNumber())
+                .address(orderDTO.getAddress())
+                .note(orderDTO.getNote())
+                .orderDate(new Date())
+                .status(OrderStatus.PENDING)
+                .totalMoney(orderDTO.getTotalMoney())
+                .shippingMethod(orderDTO.getShippingMethod())
+                .shippingAddress(orderDTO.getShippingAddress())
+                .paymentMethod(orderDTO.getPaymentMethod())
+                .active(true)
+                .build();
+        //Order order = new Order();
+
+//
+//        modelMapper.map(orderDTO, order);
+//        order.setUser(user);
+//        order.setOrderDate(new Date());
+//        order.setStatus(OrderStatus.PENDING);
 
         LocalDate shippingDate = orderDTO.getShippingDate() == null ? LocalDate.now(): orderDTO.getShippingDate();
         if (shippingDate.isBefore(LocalDate.now())){
             throw new DataNotFoundException("Date must be at least today");
         }
         order.setShippingDate(shippingDate);
-        order.setActive(true);
         orderRepository.save(order);
         return order;
     }
@@ -58,10 +74,27 @@ public class OrderService implements IOrderService {
         User existingUser = userRepository.findById(orderDTO.getUserId())
                 .orElseThrow(() -> new DataNotFoundException("Can not find user with id: "+orderDTO.getUserId()));
         //mapper order -> orderDTO
-        modelMapper.typeMap(OrderDTO.class, Order.class).addMappings(mapper -> mapper.skip(Order::setId));
-        modelMapper.map(orderDTO, order);
+//        modelMapper.typeMap(OrderDTO.class, Order.class).addMappings(mapper -> mapper.skip(Order::setId));
+//        modelMapper.map(orderDTO, order);
+
         order.setUser(existingUser);
-        return orderRepository.save(order);
+        order.setFullName(orderDTO.getFullName());
+        order.setEmail(orderDTO.getEmail());
+        order.setPhoneNumber(orderDTO.getPhoneNumber());
+        order.setAddress(orderDTO.getAddress());
+        order.setNote(orderDTO.getNote());
+        order.setTotalMoney(orderDTO.getTotalMoney());
+        order.setShippingMethod(orderDTO.getShippingMethod());
+        order.setShippingAddress(orderDTO.getShippingAddress());
+        order.setPaymentMethod(orderDTO.getPaymentMethod());
+
+        LocalDate shippingDate = orderDTO.getShippingDate() == null ? LocalDate.now(): orderDTO.getShippingDate();
+        if (shippingDate.isBefore(LocalDate.now())){
+            throw new DataNotFoundException("Date must be at least today");
+        }
+        order.setShippingDate(shippingDate);
+
+        return order;
     }
 
     @Override

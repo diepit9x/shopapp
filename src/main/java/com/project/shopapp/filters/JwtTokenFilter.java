@@ -30,7 +30,7 @@ public class JwtTokenFilter extends OncePerRequestFilter{
     private final UserDetailsService userDetailsService;
     private final JwtTokenUtils jwtTokenUtil;
     @Override
-    protected void doFilterInternal(@NonNull  HttpServletRequest request,
+    protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
                                     @NonNull FilterChain filterChain)
             throws ServletException, IOException {
@@ -41,7 +41,7 @@ public class JwtTokenFilter extends OncePerRequestFilter{
             }
             final String authHeader = request.getHeader("Authorization");
             if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized 1");
                 return;
             }
             final String token = authHeader.substring(7);
@@ -62,11 +62,11 @@ public class JwtTokenFilter extends OncePerRequestFilter{
             }
             filterChain.doFilter(request, response); //enable bypass
         }catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized 2");
         }
 
     }
-    private boolean isBypassToken(@NonNull  HttpServletRequest request) {
+    private boolean isBypassToken(@NonNull HttpServletRequest request) {
 
         final List<Pair<String, String>> bypassTokens = Arrays.asList(
                 Pair.of(String.format("%s/roles", apiPrefix), "GET"),

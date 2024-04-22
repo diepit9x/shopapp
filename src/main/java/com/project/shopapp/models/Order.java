@@ -1,20 +1,19 @@
 package com.project.shopapp.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
-@Data
+@Table(name = "orders")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,25 +26,26 @@ public class Order {
     @Column(name = "fullname", length = 100)
     private String fullName;
 
-    @Column(length = 100)
+    @Column(name = "email", length = 100)
     private String email;
 
-    @Column(name = "phone_number", nullable = false, length = 100)
+    @Column(name = "phone_number",nullable = false, length = 100)
     private String phoneNumber;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "address", length = 100)
     private String address;
 
-    @Column(length = 100)
+    @Column(name = "note", length = 100)
     private String note;
 
-    @Column(name = "order_date")
+    @Column(name="order_date")
     private Date orderDate;
 
+    @Column(name = "status")
     private String status;
 
     @Column(name = "total_money")
-    private Integer totalMoney;
+    private Float totalMoney;
 
     @Column(name = "shipping_method")
     private String shippingMethod;

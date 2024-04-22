@@ -1,8 +1,10 @@
 package com.project.shopapp.controllers;
 
+import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dtos.OrderDTO;
 import com.project.shopapp.models.Order;
 import com.project.shopapp.services.IOrderService;
+import com.project.shopapp.utils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
     private final IOrderService orderService;
+    private final LocalizationUtils localizationUtils;
 
     @PostMapping("")
     public ResponseEntity<?> createOrder(
@@ -58,12 +61,18 @@ public class OrderController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateOrder(
-            @Valid @PathVariable long id,
-            @Valid @RequestBody OrderDTO orderDTO
+            @Valid @PathVariable("id") Long id,
+            @Valid @RequestBody OrderDTO orderDTO,
+            BindingResult result
     ) {
         try {
-            Order order = orderService.updateOrder(id, orderDTO);
-            return ResponseEntity.ok(order);
+            if (result.hasErrors()){
+                List<String> errorMessage = result.getFieldErrors().stream()
+                        .map(FieldError::getDefaultMessage).toList();
+                return ResponseEntity.badRequest().body(errorMessage);
+            }
+            return ResponseEntity.ok(orderService.updateOrder(id, orderDTO));
+            //return ResponseEntity.ok(order);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -74,6 +83,8 @@ public class OrderController {
             @Valid @PathVariable long id
     ) {
         orderService.deleteOrder(id);
-        return ResponseEntity.ok("Order deleted successfully");
+        return ResponseEntity.ok(
+                localizationUtils.getLocalizedMessage(MessageKeys.DELETE_ORDER_SUCCESSFULLY)
+        );
     }
 }
