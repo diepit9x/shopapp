@@ -10,6 +10,7 @@ import com.project.shopapp.repositories.OrderRepository;
 import com.project.shopapp.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class OrderDetailService implements IOrderDetailService{
     private final ProductRepository productRepository;
 
     @Override
+    @Transactional
     public OrderDetail createOrderDetail(OrderDetailDTO orderDetailDTO) throws Exception {
         Order order = orderRepository.findById(orderDetailDTO.getOrderId())
                 .orElseThrow(() -> new DataNotFoundException("Can not find order with id:" + orderDetailDTO.getOrderId()));
@@ -45,6 +47,7 @@ public class OrderDetailService implements IOrderDetailService{
     }
 
     @Override
+    @Transactional
     public OrderDetail updateOrderDetail(Long id, OrderDetailDTO orderDetailDTO) throws Exception {
         OrderDetail existingOrderDetail = orderDetailRepository.findById(id)
                 .orElseThrow(() -> new DataNotFoundException("Cannot find OrderDetail with id: " + id));
@@ -63,6 +66,7 @@ public class OrderDetailService implements IOrderDetailService{
     }
 
     @Override
+    @Transactional
     public void deleteOrderDetail(Long id) {
         orderDetailRepository.deleteById(id);
     }

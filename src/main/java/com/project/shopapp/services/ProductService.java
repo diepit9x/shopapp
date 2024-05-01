@@ -15,7 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,15 +27,16 @@ public class ProductService implements IProductService {
     private final CategoryRepository categoryRepository;
     private final ProductImageRepository productImageRepository;
     @Override
+    @Transactional
     public Product createProduct(ProductDTO productDTO) throws DataNotFoundException {
         Category exstingCategory = categoryRepository.findById(productDTO.getCategoryId())
-                .orElseThrow(() -> new DataNotFoundException("Can not find catgegory with id:"+productDTO.getCategoryId()));
+                .orElseThrow(() -> new DataNotFoundException("Can not find category with id:"+productDTO.getCategoryId()));
         Product newProduct = Product.builder()
                 .name(productDTO.getName())
                 .price(productDTO.getPrice())
                 .thumbnail(productDTO.getThumbnail())
                 .description(productDTO.getDescription())
-                .catrgory(exstingCategory)
+                .category(exstingCategory)
                 .build();
         return productRepository.save(newProduct);
     }
@@ -45,18 +48,26 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Page<ProductResponse> getAllProducts(PageRequest pageRequest) {
-        return productRepository.findAll(pageRequest).map(ProductResponse::fromProduct);
+    public List<Product> findProductsByIds(List<Long> productIds) {
+        return productRepository.findProductsByIds(productIds);
     }
 
     @Override
+    public Page<ProductResponse> getAllProducts(String keyword, Long categoryId, PageRequest pageRequest) {
+        Page<Product> productPage;
+        productPage = productRepository.searchProducts(categoryId, keyword, pageRequest);
+        return productPage.map(ProductResponse::fromProduct);
+    }
+
+    @Override
+    @Transactional
     public Product updateProduct(Long id, ProductDTO productDTO) throws Exception {
         Product existingProduct = getProductById(id);
         if (existingProduct != null) {
             Category exstingCategory = categoryRepository.findById(productDTO.getCategoryId())
-                    .orElseThrow(() -> new DataNotFoundException("Can not find catgegory with id:"+productDTO.getCategoryId()));
+                    .orElseThrow(() -> new DataNotFoundException("Can not find category with id:"+productDTO.getCategoryId()));
             existingProduct.setName(productDTO.getName());
-            existingProduct.setCatrgory(exstingCategory);
+            existingProduct.setCategory(exstingCategory);
             existingProduct.setPrice(productDTO.getPrice());
             existingProduct.setDescription(productDTO.getDescription());
             existingProduct.setThumbnail(productDTO.getThumbnail());
@@ -66,6 +77,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    @Transactional
     public void deleteProduct(long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         optionalProduct.ifPresent(productRepository::delete);

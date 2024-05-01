@@ -9,10 +9,13 @@ import com.project.shopapp.responses.ProductResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
+
 public interface IProductService {
     public Product createProduct(ProductDTO productDTO) throws DataNotFoundException;
     Product getProductById(long id) throws Exception;
-    Page<ProductResponse> getAllProducts(PageRequest pageRequest);
+    List<Product> findProductsByIds(List<Long> productIds);
+    Page<ProductResponse> getAllProducts(String keyword, Long categoryId, PageRequest pageRequest);
     Product updateProduct(Long id, ProductDTO productDTO) throws Exception;
     void deleteProduct(long id);
     boolean existByName(String name);
