@@ -1,5 +1,6 @@
 package com.project.shopapp.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.javafaker.Faker;
 import com.project.shopapp.components.LocalizationUtils;
 import com.project.shopapp.dtos.ProductDTO;
@@ -13,10 +14,14 @@ import com.project.shopapp.models.Product;
 import com.project.shopapp.models.ProductImage;
 import com.project.shopapp.responses.ProductListResponse;
 import com.project.shopapp.responses.ProductResponse;
+import com.project.shopapp.responses.ResponseObject;
+import com.project.shopapp.services.IProductRedisService;
 import com.project.shopapp.services.IProductService;
 import com.project.shopapp.utils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,35 +48,57 @@ import java.util.stream.Collectors;
 @RequestMapping("${api.prefix}/products")
 @RequiredArgsConstructor
 public class ProductController {
-
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private final IProductService productService;
     private final LocalizationUtils localizationUtils;
+    private final IProductRedisService productRedisService;
 
     @GetMapping("")
-    public ResponseEntity<ProductListResponse> getproducts(
+    public ResponseEntity<ResponseObject> getProducts(
             @RequestParam(defaultValue = "") String keyword,
             @RequestParam(defaultValue = "0", name = "category_id") Long categoryId,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "12") int limit
-    ) {
-        page = page -1;
+            @RequestParam(defaultValue = "10") int limit
+    ) throws JsonProcessingException {
+        int totalPages = 0;
         PageRequest pageRequest = PageRequest.of(
-                page,
-                limit,
-                Sort.by("id").ascending()
+                page, limit,
                 //Sort.by("createdAt").descending()
+                Sort.by("id").ascending()
         );
-        Page<ProductResponse> productPage = productService.getAllProducts(keyword, categoryId, pageRequest);
-        //Lay tong so trang
-        int totalPage = productPage.getTotalPages();
-        if (totalPage <= page){
-            return getproducts(keyword, categoryId, totalPage, limit);
+        logger.info(String.format("keyword = %s, category_id = %d, page = %d, limit = %d",
+                keyword, categoryId, page, limit));
+        List<ProductResponse> productResponses = productRedisService
+                .getAllProducts(keyword, categoryId, pageRequest);
+        if (productResponses!=null && !productResponses.isEmpty()) {
+            totalPages = productResponses.get(0).getTotalPages();
         }
-        List<ProductResponse> products = productPage.getContent();
-        return ResponseEntity.ok(ProductListResponse
+        if(productResponses == null) {
+            Page<ProductResponse> productPage = productService
+                    .getAllProducts(keyword, categoryId, pageRequest);
+            // Lấy tổng số trang
+            totalPages = productPage.getTotalPages();
+            productResponses = productPage.getContent();
+            // Bổ sung totalPages vào các đối tượng ProductResponse
+            for (ProductResponse product : productResponses) {
+                product.setTotalPages(totalPages);
+            }
+            productRedisService.saveAllProducts(
+                    productResponses,
+                    keyword,
+                    categoryId,
+                    pageRequest
+            );
+        }
+        ProductListResponse productListResponse = ProductListResponse
                 .builder()
-                .products(products)
-                .totalPages(totalPage)
+                .products(productResponses)
+                .totalPages(totalPages)
+                .build();
+        return ResponseEntity.ok().body(ResponseObject.builder()
+                .message("Get products successfully")
+                .status(HttpStatus.OK)
+                .data(productListResponse)
                 .build());
     }
 
@@ -164,7 +191,7 @@ public class ProductController {
 
     }
     @GetMapping("/images/{imageName}")
-    public ResponseEntity<?> viewImage(@PathVariable String imageName) {
+    public ResponseEntity<?> viewImage(@PathVariable(required = false) String imageName) {
         try {
             Path imagePath = Paths.get("uploads/" + imageName);
             UrlResource resource = new UrlResource(imagePath.toUri());

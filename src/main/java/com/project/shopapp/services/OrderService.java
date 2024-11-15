@@ -1,18 +1,22 @@
 package com.project.shopapp.services;
 
+import com.project.shopapp.dtos.CartItemDTO;
 import com.project.shopapp.dtos.OrderDTO;
 import com.project.shopapp.exceptions.DataNotFoundException;
-import com.project.shopapp.models.Order;
-import com.project.shopapp.models.OrderStatus;
-import com.project.shopapp.models.User;
+import com.project.shopapp.models.*;
+import com.project.shopapp.repositories.OrderDetailRepository;
 import com.project.shopapp.repositories.OrderRepository;
+import com.project.shopapp.repositories.ProductRepository;
 import com.project.shopapp.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +24,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderService implements IOrderService {
     private final OrderRepository orderRepository;
+    private final OrderDetailRepository orderDetailRepository;
     private final UserRepository userRepository;
+    private final ProductRepository productRepository;
     //private final ModelMapper modelMapper;
 
     @Override
@@ -28,6 +34,10 @@ public class OrderService implements IOrderService {
     public Order createOrder(OrderDTO orderDTO) throws Exception {
         User user = userRepository.findById(orderDTO.getUserId())
                 .orElseThrow(() -> new DataNotFoundException("Cannot find user with id = "+orderDTO.getUserId()));
+
+        if (orderDTO.getCartItems().size() <= 0 ){
+            throw new Exception("There is no product in this order");
+        }
         //Convert orderDTO to Order.
         //use mapper lib
 //        modelMapper.typeMap(OrderDTO.class, Order.class)
@@ -39,7 +49,7 @@ public class OrderService implements IOrderService {
                 .phoneNumber(orderDTO.getPhoneNumber())
                 .address(orderDTO.getAddress())
                 .note(orderDTO.getNote())
-                .orderDate(new Date())
+                .orderDate(LocalDate.now())
                 .status(OrderStatus.PENDING)
                 .totalMoney(orderDTO.getTotalMoney())
                 .shippingMethod(orderDTO.getShippingMethod())
@@ -61,6 +71,29 @@ public class OrderService implements IOrderService {
         }
         order.setShippingDate(shippingDate);
         orderRepository.save(order);
+
+        //create orderdetail list
+        List<OrderDetail> orderDetails = new ArrayList<>();
+        for (CartItemDTO cartItemDTO: orderDTO.getCartItems()) {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrder(order);
+
+            //get product information from cartItemDTO
+            Long productId = cartItemDTO.getProductId();
+            int quantity = cartItemDTO.getQuantity();
+
+            //get product information form db
+            Product product = productRepository.findById(productId)
+                    .orElseThrow(() -> new DataNotFoundException("Can not find product with id: " + productId));
+            orderDetail.setProduct(product);
+            orderDetail.setNumberOfProducts(quantity);
+            orderDetail.setPrice(product.getPrice());
+
+            //add orderDetail into list
+            orderDetails.add(orderDetail);
+
+        }
+        orderDetailRepository.saveAll(orderDetails);
         return order;
     }
 
@@ -97,7 +130,7 @@ public class OrderService implements IOrderService {
         }
         order.setShippingDate(shippingDate);
 
-        return order;
+        return orderRepository.save(order);
     }
 
     @Override
@@ -113,5 +146,10 @@ public class OrderService implements IOrderService {
     @Override
     public List<Order> findByUserId(Long userId) {
         return orderRepository.findByUserId(userId);
+    }
+
+    @Override
+    public Page<Order> getOrdersByKeyword(String keyword, Pageable pageable) {
+        return orderRepository.findByKeyword(keyword, pageable);
     }
 }

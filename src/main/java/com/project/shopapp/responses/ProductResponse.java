@@ -19,6 +19,7 @@ public class ProductResponse extends BaseResponse {
     private Double price;
     private String thumbnail;
     private String description;
+    private int totalPages;
 
     @JsonProperty("category_id")
     private Long categoryId;
@@ -35,6 +36,7 @@ public class ProductResponse extends BaseResponse {
                 .description(product.getDescription())
                 .categoryId(product.getCategory().getId())
                 .productImages(product.getProductImages())
+                .totalPages(0)
                 .build();
         productResponse.setCreatedAt(product.getCreatedAt());
         productResponse.setUpdatedAt(product.getUpdatedAt());

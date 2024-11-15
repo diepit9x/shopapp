@@ -20,4 +20,7 @@ public class Role {
 
     public static String ADMIN = "ADMIN";
     public static String USER = "USER";
+    public static String STAFF_LETAN = "STAFF_LETAN";
+    public static String STAFF_BAOVE = "STAFF_BAOVE";
+
 }

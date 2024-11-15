@@ -27,7 +27,8 @@ public class JwtTokenUtils {
 
     public String generateToken(com.project.shopapp.models.User user) {
         Map<String,Object> claims = new HashMap<>();
-        claims.put("phoneNumber",user.getPhoneNumber());
+        claims.put("phoneNumber", user.getPhoneNumber());
+        claims.put("userId", user.getId());
 
         try {
             //this.generatePrivateKey();
