@@ -8248,3 +8248,353 @@ Security filter chain: [
 2024-11-15 23:45:54.008 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-11-15 23:45:54.010 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-11-15 23:45:54.025 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-16 13:25:01.879 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-16 13:25:01.925 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.1 with PID 13432 (E:\03. Personal Project\shopapp-backend\shopapp\target\classes started by NGUYEN TUAN DIEP in E:\03. Personal Project\shopapp-backend\shopapp)
+2024-11-16 13:25:01.926 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-16 13:25:03.651 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:25:03.653 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-16 13:25:03.890 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 227 ms. Found 7 JPA repository interfaces.
+2024-11-16 13:25:03.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:25:03.916 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-16 13:25:03.938 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.938 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderDetailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.938 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.938 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.940 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.941 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.941 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:25:03.941 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2024-11-16 13:25:04.761 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (http)
+2024-11-16 13:25:04.772 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:25:04.782 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-16 13:25:04.782 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-11-16 13:25:04.886 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-16 13:25:04.886 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2908 ms
+2024-11-16 13:25:04.928 [main] INFO  c.p.s.configurations.RedisConfig - redisHost = localhost, redisPort = 6379
+2024-11-16 13:25:05.291 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.16.3 by Redgate
+2024-11-16 13:25:05.292 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2024-11-16 13:25:05.292 [main] INFO  o.f.c.i.license.VersionPrinter - 
+2024-11-16 13:25:05.299 [main] INFO  o.f.c.i.r.ResourceNameValidator - 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2024-11-16 13:25:05.300 [main] INFO  o.f.c.i.r.ResourceNameValidator - If this is in error, set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2024-11-16 13:25:05.556 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/shopapp (MySQL 8.0)
+2024-11-16 13:25:05.597 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 0 migrations (execution time 00:00.011s)
+2024-11-16 13:25:05.598 [main] WARN  o.f.core.internal.command.DbValidate - No migrations found. Are your locations set up correctly?
+2024-11-16 13:25:05.613 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: << Empty Schema >>
+2024-11-16 13:25:05.615 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-16 13:25:05.719 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-16 13:25:05.806 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.22.Final
+2024-11-16 13:25:05.810 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-16 13:25:06.179 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-16 13:25:07.669 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-16 13:25:07.673 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:25:08.074 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-16 13:25:08.243 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-16 13:25:09.229 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@418ee41b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6822fdd, org.springframework.security.web.context.SecurityContextHolderFilter@34eb24e2, org.springframework.security.web.header.HeaderWriterFilter@35798cd0, org.springframework.web.filter.CorsFilter@1bf00a6f, org.springframework.security.web.authentication.logout.LogoutFilter@3d4d2e29, com.project.shopapp.filters.JwtTokenFilter@1ce07709, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5aecd826, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43a65f56, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5da1d91, org.springframework.security.web.access.ExceptionTranslationFilter@4d6f8691, org.springframework.security.web.access.intercept.AuthorizationFilter@4fa62aed]
+2024-11-16 13:25:09.240 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2024-11-16 13:25:09.695 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:25:09.725 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (http) with context path ''
+2024-11-16 13:25:09.734 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 8.301 seconds (process running for 10.797)
+2024-11-16 13:26:08.434 [http-nio-8088-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-16 13:26:08.434 [http-nio-8088-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-16 13:26:08.435 [http-nio-8088-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-11-16 13:26:08.454 [http-nio-8088-exec-2] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for PUT '/api/v1/products/2':
+
+org.apache.catalina.connector.RequestFacade@e70bec6
+
+servletPath:/api/v1/products/2
+pathInfo:null
+headers: 
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjIyMzQ1Njc4OSIsInVzZXJJZCI6OSwic3ViIjoiMjIzNDU2Nzg5IiwiZXhwIjoxNzM0Mjc1NDk2fQ.ax5p_Ee2AWCddgySKP6V521wHEz7zuXhbH0_z1EL5ak
+user-agent: PostmanRuntime/7.42.0
+accept: */*
+postman-token: 38d6983c-1cf2-4eca-9994-f3302c25d1d1
+host: localhost:8088
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 145
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  CorsFilter
+  LogoutFilter
+  JwtTokenFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+2024-11-16 13:26:08.456 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing PUT /api/v1/products/2
+2024-11-16 13:26:08.718 [http-nio-8088-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured PUT /api/v1/products/2
+2024-11-16 13:26:13.027 [http-nio-8088-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for GET '/api/v1/products?page=0&limit=20&keyword=&category_id=3':
+
+org.apache.catalina.connector.RequestFacade@3bac0bd6
+
+servletPath:/api/v1/products
+pathInfo:null
+headers: 
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjIyMzQ1Njc4OSIsInVzZXJJZCI6OSwic3ViIjoiMjIzNDU2Nzg5IiwiZXhwIjoxNzM0MDgzMzQ5fQ.yq6o5FACePz1RK9PU5sVc8smu1XaUl-0ZOosfRge6vs
+user-agent: PostmanRuntime/7.42.0
+accept: */*
+postman-token: 00dd1145-d51f-47f3-b0ec-ef11b86d9bd5
+host: localhost:8088
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  CorsFilter
+  LogoutFilter
+  JwtTokenFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+2024-11-16 13:26:13.027 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?page=0&limit=20&keyword=&category_id=3
+2024-11-16 13:26:13.033 [http-nio-8088-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?page=0&limit=20&keyword=&category_id=3
+2024-11-16 13:26:13.043 [http-nio-8088-exec-3] INFO  c.p.s.controllers.ProductController - keyword = , category_id = 3, page = 0, limit = 20
+2024-11-16 13:26:13.481 [http-nio-8088-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-11-16 13:26:18.044 [http-nio-8088-exec-4] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for GET '/api/v1/products?page=0&limit=20&keyword=&category_id=3':
+
+org.apache.catalina.connector.RequestFacade@58c9db33
+
+servletPath:/api/v1/products
+pathInfo:null
+headers: 
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwaG9uZU51bWJlciI6IjIyMzQ1Njc4OSIsInVzZXJJZCI6OSwic3ViIjoiMjIzNDU2Nzg5IiwiZXhwIjoxNzM0MDgzMzQ5fQ.yq6o5FACePz1RK9PU5sVc8smu1XaUl-0ZOosfRge6vs
+user-agent: PostmanRuntime/7.42.0
+accept: */*
+postman-token: 1617f806-81a1-40ed-88c2-c8ec70a35647
+host: localhost:8088
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+
+
+Security filter chain: [
+  DisableEncodeUrlFilter
+  WebAsyncManagerIntegrationFilter
+  SecurityContextHolderFilter
+  HeaderWriterFilter
+  CorsFilter
+  LogoutFilter
+  JwtTokenFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  ExceptionTranslationFilter
+  AuthorizationFilter
+]
+
+
+************************************************************
+
+
+2024-11-16 13:26:18.044 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /api/v1/products?page=0&limit=20&keyword=&category_id=3
+2024-11-16 13:26:18.045 [http-nio-8088-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /api/v1/products?page=0&limit=20&keyword=&category_id=3
+2024-11-16 13:26:18.046 [http-nio-8088-exec-4] INFO  c.p.s.controllers.ProductController - keyword = , category_id = 3, page = 0, limit = 20
+2024-11-16 13:26:18.050 [http-nio-8088-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2024-11-16 13:29:20.263 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:29:24.917 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-16 13:29:24.951 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.1 with PID 6552 (E:\03. Personal Project\shopapp-backend\shopapp\target\classes started by NGUYEN TUAN DIEP in E:\03. Personal Project\shopapp-backend\shopapp)
+2024-11-16 13:29:24.952 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-16 13:29:25.687 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:29:25.688 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-16 13:29:25.844 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 149 ms. Found 7 JPA repository interfaces.
+2024-11-16 13:29:25.864 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:29:25.865 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-16 13:29:25.883 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.884 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderDetailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.884 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.884 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.886 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.887 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.887 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:29:25.887 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2024-11-16 13:29:26.557 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (http)
+2024-11-16 13:29:26.575 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:29:26.577 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-16 13:29:26.577 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-11-16 13:29:26.678 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-16 13:29:26.678 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1682 ms
+2024-11-16 13:29:26.716 [main] INFO  c.p.s.configurations.RedisConfig - redisHost = localhost, redisPort = 6379
+2024-11-16 13:29:26.986 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.16.3 by Redgate
+2024-11-16 13:29:26.986 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2024-11-16 13:29:26.986 [main] INFO  o.f.c.i.license.VersionPrinter - 
+2024-11-16 13:29:26.994 [main] INFO  o.f.c.i.r.ResourceNameValidator - 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2024-11-16 13:29:26.994 [main] INFO  o.f.c.i.r.ResourceNameValidator - If this is in error, set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2024-11-16 13:29:27.162 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/shopapp (MySQL 8.0)
+2024-11-16 13:29:27.196 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 0 migrations (execution time 00:00.012s)
+2024-11-16 13:29:27.196 [main] WARN  o.f.core.internal.command.DbValidate - No migrations found. Are your locations set up correctly?
+2024-11-16 13:29:27.214 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: << Empty Schema >>
+2024-11-16 13:29:27.216 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-16 13:29:27.305 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-16 13:29:27.358 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.22.Final
+2024-11-16 13:29:27.361 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-16 13:29:27.634 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-16 13:29:28.943 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-16 13:29:28.946 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:29:29.312 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-16 13:29:29.443 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-16 13:29:30.312 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a5d08c5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a235a93, org.springframework.security.web.context.SecurityContextHolderFilter@25478603, org.springframework.security.web.header.HeaderWriterFilter@b525e3a, org.springframework.web.filter.CorsFilter@579847d7, org.springframework.security.web.authentication.logout.LogoutFilter@6822fdd, com.project.shopapp.filters.JwtTokenFilter@6fb3d3bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2efbe938, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12459991, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@156b3428, org.springframework.security.web.access.ExceptionTranslationFilter@39b8313d, org.springframework.security.web.access.intercept.AuthorizationFilter@4d6f83a5]
+2024-11-16 13:29:30.323 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2024-11-16 13:29:30.698 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:29:30.716 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (http) with context path ''
+2024-11-16 13:29:30.724 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 6.2 seconds (process running for 7.068)
+2024-11-16 13:31:01.000 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:31:03.993 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-16 13:31:04.028 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.1 with PID 8036 (E:\03. Personal Project\shopapp-backend\shopapp\target\classes started by NGUYEN TUAN DIEP in E:\03. Personal Project\shopapp-backend\shopapp)
+2024-11-16 13:31:04.029 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-16 13:31:04.821 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:31:04.823 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-16 13:31:04.983 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 152 ms. Found 7 JPA repository interfaces.
+2024-11-16 13:31:05.001 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:31:05.002 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-16 13:31:05.016 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.017 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderDetailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.017 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.017 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.019 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.019 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.020 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:31:05.020 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2024-11-16 13:31:05.737 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (http)
+2024-11-16 13:31:05.757 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:31:05.759 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-16 13:31:05.759 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-11-16 13:31:05.859 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-16 13:31:05.859 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1777 ms
+2024-11-16 13:31:05.899 [main] INFO  c.p.s.configurations.RedisConfig - redisHost = localhost, redisPort = 6379
+2024-11-16 13:31:06.191 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.16.3 by Redgate
+2024-11-16 13:31:06.191 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2024-11-16 13:31:06.192 [main] INFO  o.f.c.i.license.VersionPrinter - 
+2024-11-16 13:31:06.200 [main] INFO  o.f.c.i.r.ResourceNameValidator - 1 SQL migrations were detected but not run because they did not follow the filename convention.
+2024-11-16 13:31:06.200 [main] INFO  o.f.c.i.r.ResourceNameValidator - If this is in error, set 'validateMigrationNaming' to true to fail fast and see a list of the invalid file names.
+2024-11-16 13:31:06.374 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/shopapp (MySQL 8.0)
+2024-11-16 13:31:06.409 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 0 migrations (execution time 00:00.012s)
+2024-11-16 13:31:06.409 [main] WARN  o.f.core.internal.command.DbValidate - No migrations found. Are your locations set up correctly?
+2024-11-16 13:31:06.427 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: << Empty Schema >>
+2024-11-16 13:31:06.429 [main] INFO  o.f.core.internal.command.DbMigrate - Schema `shopapp` is up to date. No migration necessary.
+2024-11-16 13:31:06.514 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-16 13:31:06.570 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.22.Final
+2024-11-16 13:31:06.573 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-16 13:31:06.861 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-16 13:31:08.202 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-16 13:31:08.205 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:31:08.576 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-16 13:31:08.716 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-16 13:31:09.629 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@475534d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52e67513, org.springframework.security.web.context.SecurityContextHolderFilter@43114981, org.springframework.security.web.header.HeaderWriterFilter@2efbe938, org.springframework.web.filter.CorsFilter@1e60d113, org.springframework.security.web.authentication.logout.LogoutFilter@3f9167f7, com.project.shopapp.filters.JwtTokenFilter@3979c6e8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62225578, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1581c6fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@697ea6b2, org.springframework.security.web.access.ExceptionTranslationFilter@25478603, org.springframework.security.web.access.intercept.AuthorizationFilter@1a5d08c5]
+2024-11-16 13:31:09.642 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2024-11-16 13:31:10.051 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:31:10.075 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (http) with context path ''
+2024-11-16 13:31:10.085 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 6.467 seconds (process running for 7.394)
+2024-11-16 13:40:54.412 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:40:57.570 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-16 13:40:57.614 [main] INFO  c.project.shopapp.ShopappApplication - Starting ShopappApplication using Java 20.0.1 with PID 16160 (E:\03. Personal Project\shopapp-backend\shopapp\target\classes started by NGUYEN TUAN DIEP in E:\03. Personal Project\shopapp-backend\shopapp)
+2024-11-16 13:40:57.615 [main] INFO  c.project.shopapp.ShopappApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-16 13:40:58.403 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:40:58.405 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-16 13:40:58.587 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 174 ms. Found 7 JPA repository interfaces.
+2024-11-16 13:40:58.608 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-16 13:40:58.609 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-16 13:40:58.630 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.631 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderDetailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.631 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.631 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductImageRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.634 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.634 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.635 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.project.shopapp.repositories.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-11-16 13:40:58.635 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2024-11-16 13:40:59.338 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (http)
+2024-11-16 13:40:59.358 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:40:59.359 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-16 13:40:59.360 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-11-16 13:40:59.463 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-16 13:40:59.463 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1789 ms
+2024-11-16 13:40:59.503 [main] INFO  c.p.s.configurations.RedisConfig - redisHost = localhost, redisPort = 6379
+2024-11-16 13:40:59.791 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.16.3 by Redgate
+2024-11-16 13:40:59.792 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2024-11-16 13:40:59.792 [main] INFO  o.f.c.i.license.VersionPrinter - 
+2024-11-16 13:40:59.970 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/shopapp (MySQL 8.0)
+2024-11-16 13:41:00.022 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.031s)
+2024-11-16 13:41:00.042 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `shopapp`: << Empty Schema >>
+2024-11-16 13:41:00.054 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema `shopapp` to version "1 - alter table"
+2024-11-16 13:41:00.187 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema `shopapp`, now at version v1 (execution time 00:00.152s)
+2024-11-16 13:41:00.272 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-16 13:41:00.326 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.22.Final
+2024-11-16 13:41:00.329 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-11-16 13:41:00.629 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-16 13:41:01.952 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-16 13:41:01.955 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-16 13:41:02.366 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-16 13:41:02.492 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-16 13:41:03.421 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7abe70f7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@541b377d, org.springframework.security.web.context.SecurityContextHolderFilter@176b8493, org.springframework.security.web.header.HeaderWriterFilter@ce1c5f3, org.springframework.web.filter.CorsFilter@7a343975, org.springframework.security.web.authentication.logout.LogoutFilter@5a880dbe, com.project.shopapp.filters.JwtTokenFilter@cfe881a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7da43bda, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58c7bb01, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@720f29f0, org.springframework.security.web.access.ExceptionTranslationFilter@2992d955, org.springframework.security.web.access.intercept.AuthorizationFilter@166fa7ab]
+2024-11-16 13:41:03.432 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2024-11-16 13:41:03.851 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-11-16 13:41:03.867 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (http) with context path ''
+2024-11-16 13:41:03.874 [main] INFO  c.project.shopapp.ShopappApplication - Started ShopappApplication in 6.732 seconds (process running for 7.68)
+2024-11-16 13:42:22.131 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

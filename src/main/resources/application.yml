@@ -29,7 +29,10 @@ spring:
     basename: i18n/messages
     encoding: UTF-8
     default-locale: en
-
+  flyway:
+    locations: classpath:/db/migration, classpath:/dev/db/migration
+    baseline-on-migrate: true
+    baseline-version: 0
 api:
   prefix: api/v1
 jwt:

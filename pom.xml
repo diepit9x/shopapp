@@ -17,6 +17,18 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-mysql</artifactId>
+		</dependency>
+
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
